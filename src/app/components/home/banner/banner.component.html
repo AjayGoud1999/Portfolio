@@ -1,0 +1,27 @@
+<section class="section banner">
+    <div [@bannerTrigger] class="container">
+        <div class="section-box-banner">
+            <div class="content">
+                <div>
+                    <h1>Hello! My name is</h1>
+                </div>
+                <div class='banner-title'>
+                    <h2 class="text-capitalize">Ajay Goud Singam</h2>
+                    <h3 class="text-capitalize">Full Stack Developer</h3>
+                </div>
+                <div class='banner-description'>
+                    <p  class="mt-4">I am a Full Stack Developer with <span class="underline"> 3 years of experience </span> in designing and deploying scalable web applications. Proficient in backend development using <span class="underline2">Node.js, Express, and MongoDB </span>and frontend development with <span class="underline2">Angular, React, JavaScript, and TypeScript.</span> Experienced in building REST APIs, optimizing database performance, and applying best practices in software design, testing, and deployment.</p>
+                </div>
+            </div>
+            <div class="div-btn-banner">
+                <a (click)='analyticsService.sendAnalyticEvent("click_send_mail", "banner", "email")' href="mailto:singamajaygoud1999@gmail.com" target="_black" class="main-btn text-capitalize">
+                    get in touch
+                </a>
+            </div>
+        </div>
+     
+        <img class="img" (click)='analyticsService.sendAnalyticEvent("click_image", "about", "image")'  width="300" height="300" src="" alt="Git User">
+
+    </div>
+
+</section>

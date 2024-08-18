@@ -1,0 +1,38 @@
+<section class="section proyects" id="proyects">
+    <div class="container">
+        <div class="section-box">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h3 class="section-title">
+                    <span class='n-section-title'>03.</span> MyProjects 
+                </h3>
+            </div>
+
+            <div *ngFor='let project of Projects; let i = index' class="project-card" data-aos="fade-up" data-aos-duration="1000">
+                <div class="project-image">
+                    <img [src]="project.imgs[0]" [alt]="project.Title">
+                </div>
+                <div class="project-content">
+                    <h5 class="project-title">{{ project.Title }}</h5>
+                    <p class="project-description">{{ project.Description }}</p>
+                    <ul class="project-skills">
+                        <li *ngFor="let technology of project.Technologies">{{ technology }}</li>
+                    </ul>
+                    <div class="project-links">
+                        <a *ngIf="project['ghLink']" [href]="project['ghLink']" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a *ngIf="project['demoLink']" [href]="project['demoLink']" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="project-image" *ngIf="i % 2 == 0">
+                    <img [src]="project.imgs[0]" [alt]="project.Title">
+                </div> -->
+            </div>
+            
+            
+              
+        </div>
+    </div>
+</section>

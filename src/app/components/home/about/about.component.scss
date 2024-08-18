@@ -1,0 +1,191 @@
+@import "./../../../../variables.scss";
+
+.about {
+    .about-description {
+        margin-top: 30px;
+        max-width: 480px;
+    }
+
+    .about-img-container {
+        width: 324px;
+        margin: auto;
+
+        &:after {
+            content: '';
+            border: 2px solid $Green;
+            z-index: 0;
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 3px;
+            bottom: 290px;
+            left: 23px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: transform 1s ease, opacity 1s ease;
+        }
+
+        img {
+            z-index: 2;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 1s ease, opacity 1s ease;
+        }
+    }
+
+    .skills-section {
+        margin: 0 auto;
+        text-align: center;
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+        margin: 20px 0 0 0;
+        list-style: none;
+    }
+
+    .skill-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-family: $CodeFont;
+        color: $Slate;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .skill-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-icon {
+        font-size: 40px;
+        color: $Slate;
+    }
+
+    .skill-name {
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1300px) {
+    .about-img-container {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .about {
+        .about-img-container img {
+            width: 200px;
+            height: 200px;
+        }
+        .about-img-container:after {
+            width: 200px;
+            height: 200px;
+            bottom: 190px;
+            left: 74px;
+        }
+    }
+
+    .skills-section {
+        padding: 10px;
+    }
+
+    .skills-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-element {
+        font-size: 16px;
+
+        .skill-box {
+            width: 60px;
+            height: 60px;
+        }
+
+        .skill-icon {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .about {
+        .about-img-container {
+            width: 100%;
+
+            img {
+                width: 180px;
+                height: 180px;
+            }
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply animations when the page loads */
+.about-img-container img {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.about-img-container:after {
+    animation: scaleIn 1s ease forwards;
+}
+
+.skills-section {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.skills-list .skill-element {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: calc(0.1s * var(--i)); /* Stagger animations for skill elements */
+}

@@ -1,0 +1,104 @@
+@import "./../../../../variables.scss";
+
+.project-card {
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: none ;
+    border-radius: 8px;
+    box-shadow: 0 5px 5px #006E7C;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-image {
+        flex: 1;
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .project-content {
+        flex: 1;
+        padding: 0 20px;
+
+        .project-title {
+            font-size: 24px;
+            color: $Slate;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 20px;
+            color: $LightestSlate;
+            margin-bottom: 20px;
+        }
+
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+
+            li {
+                font-size: 14px;
+                color: $White;
+                margin-right: 15px;
+                margin-bottom: 10px;
+                background-color: $LightSlate;
+                padding: 5px 10px;
+                border-radius: 5px;
+            }
+        }
+
+        .project-links {
+            a {
+                font-size: 20px;
+                color: $Green;
+                margin-right: 15px;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: lighten($Green, 10%);
+                }
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        flex-direction: column;
+        text-align: center;
+
+        .project-image,
+        .project-content {
+            flex: unset;
+            padding: 10px 0;
+        }
+
+        .project-content {
+            padding: 0;
+
+            .project-title {
+                font-size: 20px;
+            }
+
+            .project-description {
+                font-size: 14px;
+            }
+        }
+    }
+}
